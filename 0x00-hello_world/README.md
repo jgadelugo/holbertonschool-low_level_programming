@@ -4,7 +4,7 @@ Task 0 - script that runs a C file through the preprocessor and save the result 
 Task 1 - compile a C file but does not link
 Task 2 - generates the assembly code of a C code and save it in an output file
 Task 3 - compile a C file and create an executable name cisfun
-Task 4 -
+Task 4 - C program that prints a "Programing..." using puts
 Task 5 -
 Task 6 -
 Task 7 - blog post that explains all the steps of compilation.
