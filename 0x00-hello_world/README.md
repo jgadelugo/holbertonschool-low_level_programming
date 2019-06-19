@@ -8,5 +8,5 @@ Task 4 - C program that prints a "Programing..." using puts
 Task 5 - C program that prints quote using printf
 Task 6 - print size of various types on the coputer it is compiled on 
 Task 7 - blog post that explains all the steps of compilation.
-Adv Task 8 -
+Adv Task 8 - Generates the assebly code (intel syntax) of a C code and save it in an output file
 Adv Task 9 -
