@@ -6,8 +6,8 @@ Task 2 - print alphabet in lowercase using putchar
 Task 3 - print alphabet lower then upper case using putchar
 Task 4 - print alphabet in lowercase except q and e using putchar
 Task 5 - print all single digit numbers of base 10 starting from 0
-Task 6 -
-Task 7 -
+Task 6 - print all single digit numbers not using variable char and using putchar
+Task 7 - print the alphabet backwards using putchar
 Task 8 -
 Task 9 -
 Task 10 -
