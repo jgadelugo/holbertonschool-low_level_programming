@@ -4,7 +4,7 @@ Task 0 - assign a random number to variable n each time it is executed and print
 Task 1 - print the last digit of a random number
 Task 2 - print alphabet in lowercase using putchar
 Task 3 - print alphabet lower then upper case using putchar
-Task 4 -
+Task 4 - print alphabet in lowercase except q and e using putchar
 Task 5 -
 Task 6 -
 Task 7 -
