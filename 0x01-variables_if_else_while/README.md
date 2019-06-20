@@ -5,7 +5,7 @@ Task 1 - print the last digit of a random number
 Task 2 - print alphabet in lowercase using putchar
 Task 3 - print alphabet lower then upper case using putchar
 Task 4 - print alphabet in lowercase except q and e using putchar
-Task 5 -
+Task 5 - print all single digit numbers of base 10 starting from 0
 Task 6 -
 Task 7 -
 Task 8 -
