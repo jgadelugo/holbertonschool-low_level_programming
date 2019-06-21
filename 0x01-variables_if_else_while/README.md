@@ -11,6 +11,6 @@ Task 7 - print the alphabet backwards using putchar
 Task 8 -print all the numbers of base 16 in lowercase 
 Task 9 - write program that prints 0 - 9 using max 4 putchars comma separated
 Task 10 - write program that prints the numbers 00 to 99 using max 5 putchars comma separated
-Adv. Task 11 -
+Adv. Task 11 - print all two digit combinations of 0-9 the two digits must be different and 01 and 10 are considered the same only use putchar
 Adv. Task 12 -
 Adv. Task 13 - 
