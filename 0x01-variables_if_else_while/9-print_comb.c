@@ -17,8 +17,8 @@ continue;
 }
 else
 {
-putchar(' ');
 putchar(',');
+putchar(' ');
 }
 }
 putchar('\n');
