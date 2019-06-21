@@ -13,6 +13,8 @@ for (nums = '0'; nums < '9'; nums++)
 {
 for (nums1 = '0'; nums1 <= '9'; nums1++)
 {
+if (nums == '0' && nums1 < '1')
+continue;
 if (nums == '1' && nums1 < '2')
 continue;
 if (nums == '2' && nums1 < '3')
