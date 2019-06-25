@@ -13,5 +13,5 @@ if (i < 0)
 i *= -1;
 i += 48;
 _putchar(i);
-return (i-'0');
+return (i - '0');
 }
