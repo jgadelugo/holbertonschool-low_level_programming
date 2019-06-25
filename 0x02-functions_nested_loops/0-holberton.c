@@ -1,15 +1,15 @@
+
 #include "holberton.h"
 
-/*
+/**
  * main - print holberton
- * add comment
- * return 0 if succesful
+ * Return: 0 if succesful
  */
 int main(void)
 {
 char h[10] = "Holberton\n";
- 
- for (int i = 0; i < sizeof(h); i++)
+
+for (int i = 0; i < 10; i++)
 _putchar(h[i]);
 
 return (0);
