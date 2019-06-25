@@ -7,10 +7,16 @@
  */
 int main(void)
 {
-char h[10] = "Holberton\n";
-
-for (int i = 0; i < 10; i++)
-_putchar(h[i]);
+_putchar('H');
+_putchar('o');
+_putchar('l');
+_putchar('b');
+_putchar('e');
+_putchar('r');
+_putchar('t');
+_putchar('o');
+_putchar('n');
+_putchar('\n');
 
 return (0);
 }
