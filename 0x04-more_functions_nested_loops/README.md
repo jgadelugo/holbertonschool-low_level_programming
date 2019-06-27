@@ -10,6 +10,6 @@ Task 6 - print straight line of n size
 Task 7 - function that draws a diagonal line on the terminal
 Task 8 - print square of n size
 Task 9 - The “Fizz-Buzz test”
-Task 10 -
+Task 10 - Print backwards triangle
 Task 11 -
 Task 12 -
