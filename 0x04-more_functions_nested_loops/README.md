@@ -9,7 +9,7 @@ Task 5 - print numbers 0 - 14 ten times using 3 putchars
 Task 6 - print straight line of n size
 Task 7 - function that draws a diagonal line on the terminal
 Task 8 - print square of n size
-Task 9 -
+Task 9 - The “Fizz-Buzz test”
 Task 10 -
 Task 11 -
 Task 12 -
