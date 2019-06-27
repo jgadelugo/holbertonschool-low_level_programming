@@ -7,7 +7,7 @@ Task 3 - print numbers 0 - 9 using _putchar
 Task 4 - print numbers 0 - 9 using _putchar except 2 & 4
 Task 5 - print numbers 0 - 14 ten times using 3 putchars
 Task 6 - print straight line of n size
-Task 7 -
+Task 7 - function that draws a diagonal line on the terminal
 Task 8 -
 Task 9 -
 Task 10 -
