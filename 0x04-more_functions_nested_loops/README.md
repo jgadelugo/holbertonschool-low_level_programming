@@ -2,8 +2,8 @@
 
 Task 0 - check if character is uppercase
 Task 1 - write a function that checks for a digit (0 through 9)
-Task 2 -
-Task 3 -
+Task 2 - multiply two integers
+Task 3 - print numbers 0 - 9 using _putchar
 Task 4 -
 Task 5 -
 Task 6 -
