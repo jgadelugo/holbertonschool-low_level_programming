@@ -12,4 +12,4 @@ Task 8 - print square of n size
 Task 9 - The “Fizz-Buzz test”
 Task 10 - Print backwards triangle
 Task 11 -
-Task 12 -
+Task 12 - print an integer using putchar
