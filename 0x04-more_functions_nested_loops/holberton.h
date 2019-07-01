@@ -13,5 +13,6 @@ void print_diagonal(int n);
 void print_square(int size);
 void print_triangle(int n);
 void print_number(int n);
+int pattern(int n);
 
 #endif /* HOLBERTON_H */
