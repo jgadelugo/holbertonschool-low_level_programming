@@ -3,9 +3,9 @@
 Task 0 - takes a pointer to an int as parameter and updates the value it points to to 98
 Task 1 - swap two variables
 Task 2 - print length of a string
-Task 3 -
-Task 4 -
-Task 5 -
+Task 3 - print a string
+Task 4 - reverse a string
+Task 5 - reverse the value the pointer is pointing to
 Task 6 -
 Task 7 -
 Task 8 -
