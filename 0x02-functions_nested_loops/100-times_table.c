@@ -5,7 +5,7 @@
  */
 void print_times_table(int n)
 {
-int x, y, z, k, t, j;
+int x, y, z, k, t;
 
 	for (x = 0; x <= n; x++)
 	{
@@ -14,18 +14,6 @@ int x, y, z, k, t, j;
 			z = x * y;
 			if (z == 0 && y == 0)
 				_putchar(z + '0');
-			else if (z > 999)
-			{
-				k = z % 10;
-				t = (z / 10) % 10;
-				j = (z / 100) % 10;
-				z /= 1000;
-				_putchar(',');
-				_putchar(z + '0');
-				_putchar(t + '0');
-				_putchar(j + '0');
-				_putchar(k + '0');
-			}
 			else if (z > 99)
 			{
 				k = z % 10;
