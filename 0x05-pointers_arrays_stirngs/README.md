@@ -1,8 +1,8 @@
 0x05 C - Pointers, arrays and strings
 
 Task 0 - takes a pointer to an int as parameter and updates the value it points to to 98
-Task 1 -
-Task 2 -
+Task 1 - swap two variables
+Task 2 - print length of a string
 Task 3 -
 Task 4 -
 Task 5 -
