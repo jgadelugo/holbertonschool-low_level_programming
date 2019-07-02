@@ -9,6 +9,6 @@ Task 5 - reverse the value the pointer is pointing to
 Task 6 - print every other character 
 Task 7 - print second half of an array
 Task 8 - print n elements of an array of integers, followed by a new line
-Task 9 -
-Task 10 -
-Task 11 -
+Task 9 - copy string to pointer
+Task 10 - write a function that convert a string to an integer
+Task 11 - create a program that generates random valid passwords for the program
