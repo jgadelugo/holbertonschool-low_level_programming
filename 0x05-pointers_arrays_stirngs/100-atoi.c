@@ -2,8 +2,8 @@
 
 /**
  * _atoi - converts a string to an integer
- *
- *
+ * @s: string to be converted
+ * Return: integers in a string
  */
 
 int _atoi(char *s)
@@ -16,7 +16,7 @@ int _atoi(char *s)
 	mult = 1;
 	neg = 1;
 	num = 0;
-	
+
 	while (s[len] != '\0')
 		len++;
 	len--;
@@ -26,7 +26,7 @@ int _atoi(char *s)
 		mult *= 10;
 		count--;
 	}
-	for (;x < len; x++)
+	for (; x < len; x++)
 	{
 		if (s[x] == '-')
 			neg *= -1;
