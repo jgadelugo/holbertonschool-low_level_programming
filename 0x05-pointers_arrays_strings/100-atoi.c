@@ -27,22 +27,17 @@ int _atoi(char *s)
 		}
 		len++;
 	}
-	while (numcount > 1)
-	{
+	for (;numcount > 1; numcount--)
 		mult *= 10;
-		numcount--;
-	}
 	for (; x <= len; x++)
 	{
 		if (s[x] == '-')
 			neg *= -1;
 		else if (s[x] <= '9' && s[x] >= '0')
 		{
-			num += (s[x] - '0') * mult;
+			num += (s[x] - '0') * mult * neg;
 			mult /= 10;
 		}
 	}
-	if (neg < 0)
-		num *= -1;
 	return (num);
 }
