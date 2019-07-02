@@ -6,7 +6,7 @@ Task 2 - print length of a string
 Task 3 - print a string
 Task 4 - reverse a string
 Task 5 - reverse the value the pointer is pointing to
-Task 6 -
+Task 6 - print every other character 
 Task 7 -
 Task 8 -
 Task 9 -
