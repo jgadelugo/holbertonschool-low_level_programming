@@ -8,35 +8,43 @@
 
 int _atoi(char *s)
 {
-	int num, len, count, mult, x, neg;
+	int num, len, numcount, mult, x, neg;
 
 	len = 0;
 	x = 0;
-	count = 0;
+	numcount = 0;
 	mult = 1;
-	neg = 1;
+	neg = 0;
 	num = 0;
 
 	while (s[len] != '\0')
+	{
+		if (s[len] >= '0' && s[len] <= '9')
+		{
+			numcount++;
+			if (!(s[len + 1] >= '0' && s[len + 1] <= '9'))
+				break;
+		}
 		len++;
-	len--;
-	count = len;
-	while (count > 0)
+	}
+	while (numcount > 1)
 	{
 		mult *= 10;
-		count--;
+		numcount--;
 	}
-	for (; x < len; x++)
+	for (; x <= len; x++)
 	{
 		if (s[x] == '-')
-			neg *= -1;
-		else if (s[x] == ' ' || s[x] == '+')
-			neg *= 1;
+			neg += -1;
+		else if (s[x] == '+')
+			neg += 1;
 		else if (s[x] <= '9' && s[x] >= '0')
-			num += s[x] * mult;
-		mult /= 10;
+		{
+			num += (s[x] - '0') * mult;
+			mult /= 10;
+		}
 	}
-	if (neg != 1)
+	if (neg < 0)
 		num *= -1;
 	return (num);
 }
