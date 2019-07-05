@@ -7,7 +7,7 @@ Task 3 - function that compares two strings (strcmp)
 Task 4 - Reverse an integer array
 Task 5 - turn all letters into uppercase
 Task 6 - capitalize all words
-Task 7 -
+Task 7 - encode string into 1337
 Task 8 -
 task 9 -
 Task 10 -
