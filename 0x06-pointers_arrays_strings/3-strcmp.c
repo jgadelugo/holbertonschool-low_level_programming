@@ -10,24 +10,13 @@
 
 int _strcmp(char *s1, char *s2)
 {
-	int comp = 0, count1 = 0, count2 = 0;
+	int count = 0;
 
-	for (; *(s1 + count1) != '\0' || *(s2 + count2) != '\0'; count1++, count2++)
+	while (*(s1 + count) != '\0' || *(s2 + count) != '\0')
 	{
-		if (*(s1 + count1) != '\0' && *(s2 + count2) != '\0')
-		{
-			comp += *(s1 + count1) - *(s2 + count2);
-		}
-		if (*(s1 + count1) == '\0')
-		{
-			count1--;
-			comp -= (*(s2 + count2) - 68);
-		}
-		if (*(s2 + count2) == '\0')
-		{
-			count2--;
-			comp += (*(s1 + count1) - 68);
-		}
+		if (s1 != s2)
+			return (*(s1 + count) - *(s2 + count));
+		count++;
 	}
-	return (comp);
+	return (0);
 }
