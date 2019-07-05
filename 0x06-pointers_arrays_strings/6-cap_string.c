@@ -8,17 +8,20 @@
 
 char *cap_string(char *a)
 {
-	int i;
-	char previous;
+	int i, x;
+	char *seperators = ",;.!?\"(){} \n\t";
 
-	for (; *(a + i) != '\0'; i++)
+	for (i = 0; *(a + i) != '\0'; i++)
 	{
 		if (*(a + i) >= 'a' && *(a + i) <= 'z')
-			if (previous == ' ' || previous == '\n')
-				*(a + i) -= 32;
-			else if (previous == '.' || previous == '\t')
-				*(a + i) -= 32;
-		previous = *(a + i);
+			for (x = 0; *(seperators + x) != '\0'; x++)
+				{
+					if (*(a + i - 1) == *(seperators + x))
+					{
+						*(a + i) -= 32;
+						break;
+					}
+				}
 	}
 	return (a);
 }
