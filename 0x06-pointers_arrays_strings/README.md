@@ -8,8 +8,8 @@ Task 4 - Reverse an integer array
 Task 5 - turn all letters into uppercase
 Task 6 - capitalize all words
 Task 7 - encode string into 1337
-Task 8 -
-task 9 -
+Task 8 - encode and decode rot13
+task 9 - function that prints an integer using putchar
 Task 10 -
 Task 11 -
 Task 12 -
