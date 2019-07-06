@@ -15,18 +15,18 @@ char *cap_string(char *a)
 	{
 		if (*(a + i) >= 'a' && *(a + i) <= 'z')
 			for (x = 0; *(seperators + x) != '\0'; x++)
+			{
+				if (*(a + i - 1) == *(seperators + x))
 				{
-					if (*(a + i - 1) == *(seperators + x))
-					{
-						*(a + i) -= 32;
-						break;
-					}
-					else if (i ==0)
-					{
-						*(a + i) -= 32;
-						break;
-					}
+					*(a + i) -= 32;
+					break;
 				}
+				else if (i == 0)
+				{
+					*(a + i) -= 32;
+					break;
+				}
+			}
 	}
 	return (a);
 }
