@@ -12,6 +12,7 @@ char *rot13(char *a)
 	int i, x, hold;
 	char check[] = "AaZz";
 	char ntom[] = "NOPQRSTUVWXYZABCDEFGHIJKLM";
+
 	for (i = 0; *(a + i) != '\0'; i++)
 		for (x = 0; x < 2; x++)
 		{
