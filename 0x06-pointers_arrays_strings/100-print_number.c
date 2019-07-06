@@ -7,9 +7,8 @@
 
 void print_number(int n)
 {
-	int count, x, y, k;
+	int count, y, k;
 
-	x = 0;
 	y = 1000000000;
 
 	if (n == 0)
@@ -18,18 +17,10 @@ void print_number(int n)
 		n *= -1;
 	else
 		_putchar('-');
-	for (count = 0; count < 10; count++)
+	for (count = 0; count < 10; count++, y /= 10)
 	{
-		if (n / y == 0 && x == 0)
-		{
-			y /= 10;
+		if (n / y == 0)
 			continue;
-		}
-		else if (x == 0)
-		{
-			_putchar(-(n / y) + '0');
-			x += 1;
-		}
 		else
 		{
 			k = (-(n / y) % 10);
@@ -37,6 +28,5 @@ void print_number(int n)
 				k *= -1;
 			_putchar(k + '0');
 		}
-		y /= 10;
 	}
 }
