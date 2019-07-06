@@ -21,6 +21,11 @@ char *cap_string(char *a)
 						*(a + i) -= 32;
 						break;
 					}
+					else if (i ==0)
+					{
+						*(a + i) -= 32;
+						break;
+					}
 				}
 	}
 	return (a);
