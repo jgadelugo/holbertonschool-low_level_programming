@@ -4,3 +4,5 @@ Task 0 - create memset function
 Task 1 - create memcpy function
 Task 2 - create strchr function
 Task 3 - create strspn function
+Task 4 - create strpbrk function
+Task 5 - create strstr function
