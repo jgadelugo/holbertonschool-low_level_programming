@@ -5,7 +5,6 @@
  * @s: value to overide
  * @to: value to copy
  */
-
 void set_string(char **s, char *to)
 {
 	*s = to;
