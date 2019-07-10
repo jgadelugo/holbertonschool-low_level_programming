@@ -2,10 +2,12 @@
 #include <stdio.h>
 
 /**
- * _print_rev_recursion - prints a string in reverse
+ * get_length - gets length and prints charachters in reverse
  * @s: pointer to a string
+ * @len: length of strin
+ * @check: checks that it got to the end
  */
-int get_length(char *s, int len, int check)
+void get_length(char *s, int len, int check)
 {
 	if (*(s + len) != '\0' && check == 0)
 	{
@@ -22,15 +24,16 @@ int get_length(char *s, int len, int check)
 	}
 	else
 		_putchar('\n');
-	return (len);
 }
+
+/**
+ * _print_rev_recursion - prints a string in reverse
+ * @s: pointer to a string
+ */
 
 void _print_rev_recursion(char *s)
 {
 	int len = 0, check = 0;
 
-	len = (get_length(s, len, check) - 1);
+	get_length(s, len, check);
 }
-
-
-			
