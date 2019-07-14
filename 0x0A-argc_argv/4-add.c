@@ -35,9 +35,9 @@ int main(int argc, char *argv[])
 	}
 	for (i = 1, sum = 0; i < argc; i++)
 	{
-		if (chartoint(argv[i]) > -1 && sum < INT_MAX)
+		if (chartoint(argv[i]) > -1)
 			sum += chartoint(argv[i]);
-		else
+		else if (sum > INT_MAX || chartoint(argv[i]) < 0)
 		{
 			printf("Error\n");
 			return (1);
