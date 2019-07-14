@@ -9,7 +9,12 @@
  */
 int chartoint(char *c)
 {
-	if (*c == '0')
+	int i, count = 0;
+
+	for (i = 0; *(c + i); i++)
+		if (*(c + i) == '0')
+			count++;
+	if (i == count)
 		return (0);
 	else if (strtol(c, 0, 10) == 0)
 		return (-1);
