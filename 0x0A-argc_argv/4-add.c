@@ -26,7 +26,7 @@ int chartoint(char *c)
  */
 int main(int argc, char *argv[])
 {
-	int i, sum;
+	int i, sum, check;
 
 	if (argc == 1)
 	{
@@ -35,9 +35,15 @@ int main(int argc, char *argv[])
 	}
 	for (i = 1, sum = 0; i < argc; i++)
 	{
-		if (chartoint(argv[i]) > -1)
-			sum += chartoint(argv[i]);
-		else if (sum > INT_MAX || chartoint(argv[i]) < 0)
+		check = chartoint(argv[i]);
+		if (check > -1)
+		{
+			if (INT_MAX - sum > check)
+				sum += check;
+			else
+				check = -1;
+		}
+		if (check < 0)
 		{
 			printf("Error\n");
 			return (1);
