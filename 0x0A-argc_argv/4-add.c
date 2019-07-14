@@ -39,6 +39,8 @@ int main(int argc, char *argv[])
 	{
 		if (chartoint(argv[i]) > -1)
 			sum += chartoint(argv[i]);
+		else if (strtol(argv[i], 0, 10))
+			continue;
 		else
 		{
 			printf("Error\n");
