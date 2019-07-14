@@ -1,3 +1,4 @@
+#include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,13 +13,12 @@ int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		printf("ERROR\n");
+		printf("Error\n");
 		return (0);
 	}
 	int x = atoi(argv[1]);
 	int y = atoi(argv[2]);
-	int mul = x * y;
 
-	printf("%d\n", mul);
+	printf("%d\n", x * y);
 	return (0);
 }
