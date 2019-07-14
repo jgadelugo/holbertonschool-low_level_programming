@@ -11,11 +11,10 @@ int chartoint(char *c)
 {
 	int num;
 	char *ptr;
-	
+
 	num = strtol(c, &ptr, 10);
 	if (ptr[0])
 		return (-1);
-	
 	return (num);
 }
 
