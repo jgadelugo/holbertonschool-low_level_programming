@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		x = strtol(argv[1], 0, 10);
-		y = strtol(argv[2], 0 , 10);
+		y = strtol(argv[2], 0, 10);
 		printf("%d\n", x * y);
 	}
 	return (0);

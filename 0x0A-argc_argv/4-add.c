@@ -11,9 +11,9 @@ int chartoint(char *c)
 {
 	if (*c == '0')
 		return (0);
-	else if (atoi(c) == 0)
+	else if (strtol(c, 0, 10) == 0)
 		return (-1);
-	return (atoi(c));
+	return (strtol(c, 0, 10));
 }
 /**
  * main - function that multiplies two numbers
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 			sum += chartoint(argv[i]);
 		else
 		{
-			printf("ERROR\n");
+			printf("Error\n");
 			return (1);
 		}
 	}
