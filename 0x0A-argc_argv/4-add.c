@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 	}
 	for (i = 1, sum = 0; i < argc; i++)
 	{
-		if (chartoint(argv[i]) > -1)
+		if (chartoint(argv[i]) > -1 && sum < INT_MAX)
 			sum += chartoint(argv[i]);
 		else
 		{
