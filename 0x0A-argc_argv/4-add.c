@@ -18,7 +18,6 @@ int chartoint(char *c)
 	return (num);
 }
 
-
 /**
  * main - function that multiplies two numbers
  * @argc: the size of the argv array, the number of command line arguments
@@ -38,8 +37,6 @@ int main(int argc, char *argv[])
 	{
 		if (chartoint(argv[i]) > -1)
 			sum += chartoint(argv[i]);
-		else if (strtol(argv[i], 0, 10))
-			continue;
 		else
 		{
 			printf("Error\n");
