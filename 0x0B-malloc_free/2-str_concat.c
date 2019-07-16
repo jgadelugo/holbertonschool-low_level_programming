@@ -11,20 +11,25 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *ptr;
-	unsigned int x, len1, len2;
-
-	for (len1 = 0; s1[len1]; len1++)
-		;
-	for (len2 = 0; s2[len2]; len2++)
-		;
-	len2++;
+	unsigned int x, len1 = 0, len2 = 0;
 	if (!s1)
 	{
+		s1 = malloc(sizeof(char));
 		*s1 = '\0';
 		len1++;
 	}
+	else
+		for (; s1[len1]; len1++)
+			;
 	if (!s2)
+	{
+		s2 = malloc(sizeof(char));
 		*s2 = '\0';
+	}
+	else
+		for (; s2[len2]; len2++)
+			;
+	len2++;
 	ptr = malloc((len1 + len2) * sizeof(char));
 
 	if (!ptr)
