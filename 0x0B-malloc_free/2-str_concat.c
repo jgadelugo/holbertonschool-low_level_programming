@@ -18,6 +18,13 @@ char *str_concat(char *s1, char *s2)
 	for (len2 = 0; s2[len2]; len2++)
 		;
 	len2++;
+	if (!s1)
+	{
+		*s1 = '\0';
+		len1++;
+	}
+	if (!s2)
+		*s2 = '\0';
 	ptr = malloc((len1 + len2) * sizeof(char));
 
 	if (!ptr)
