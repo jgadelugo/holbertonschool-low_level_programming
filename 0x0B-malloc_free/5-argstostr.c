@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * argstostr - concat str
@@ -32,6 +33,6 @@ char *argstostr(int ac, char **av)
 			*ptr[start + y] = av[x][y];
 		}
 		start += len;
-
-	return (ptr);
+	}
+	return (*ptr);
 }
