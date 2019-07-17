@@ -25,13 +25,16 @@ char *argstostr(int ac, char **av)
 	for (x = 0; x < ac; x++)
 	{
 		len = strlen(av[x]);
-		ptr[x] = (char *)malloc(len * sizeof(char));
+
+		ptr[x] = (char *)malloc(len + 1 * sizeof(char));
+
 		if (!ptr[x])
 			return (NULL);
 		for (y = 0; y <= len; y++)
 		{
-			*ptr[start + y] = av[x][y];
+			ptr[x][y] = av[x][y];
 		}
+		ptr[x][start + y] = '\n';
 		start += len;
 	}
 	return (*ptr);
