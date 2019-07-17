@@ -3,8 +3,8 @@
 
 /**
  * alloc_grid - returns a pointer to a 2 dimensional array of integers
- * @width: rows
- * @height: columns
+ * @width: columns
+ * @height: rows
  * Return: a pointer to a 2 dimensional array of integers
  */
 
@@ -26,7 +26,10 @@ int **alloc_grid(int width, int height)
 	{
 		grid[row] = (int *)malloc(width * sizeof(int));
 		if (!grid[row])
+		{
 			free(grid);
+			return (NULL);
+		}
 		for (col = 0; col < width; col++)
 			grid[row][col] = 0;
 	}
