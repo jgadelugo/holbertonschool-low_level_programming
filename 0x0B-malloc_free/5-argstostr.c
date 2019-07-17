@@ -37,7 +37,7 @@ char *argstostr(int ac, char **av)
 	{
 		len += _strlen(av[x]);
 	}
-	ptr = (char *)malloc(len * sizeof(char *) + 1);
+	ptr = (char *)malloc(len * sizeof(char *) + ac + 1);
 
 	if (!ptr)
 		return (NULL);
