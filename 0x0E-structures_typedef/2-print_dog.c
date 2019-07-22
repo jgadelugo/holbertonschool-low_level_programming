@@ -8,12 +8,17 @@
 
 void print_dog(struct dog *d)
 {
+	char *name, *owner;
+
 	if (d)
 	{
-		if (!d->name)
-			d->name = "(nill)";
-		if (!d->owner)
-			d->owner = "(nill)";
-		printf("Name: %s\nAge: %f\nOwner: %s\n", d->name, d->age, d->owner);
+		name = d->name;
+		owner = d->owner;
+
+		if (!name)
+			name = "(nill)";
+		if (!owner)
+			owner = "(nill)";
+		printf("Name: %s\nAge: %f\nOwner: %s\n", name, d->age, owner);
 	}
 }
