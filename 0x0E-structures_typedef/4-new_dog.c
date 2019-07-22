@@ -19,12 +19,12 @@ dog_t *new_dog(char *name, float age, char *owner)
 	ptr = malloc(sizeof(dog_t));
 	if (!ptr)
 		return (NULL);
-	cname = ptr->name;
-	cowner = ptr->owner;
 	for (len1 = 0; name[len1]; len1++)
 		;
 	for (len2 = 0; owner[len2]; len2++)
 		;
+	len1++;
+	len2++;
 	cname = malloc(len1);
 	if (!cname)
 	{
