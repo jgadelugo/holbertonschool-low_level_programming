@@ -25,10 +25,11 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 	pf = (unsigned char *)main;
-	for (i = 0; i < arg; i++)
+	for (i = 0; i < (arg - 1); i++)
 	{
 		printf("%x ", pf[i]);
 	}
+	printf("%x", pf[i]);
 	printf("\n");
 	return (0);
 }
