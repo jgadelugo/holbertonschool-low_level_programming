@@ -27,9 +27,9 @@ int main(int argc, char *argv[])
 	pf = (unsigned char *)main;
 	for (i = 0; i < (arg - 1); i++)
 	{
-		printf("%x ", pf[i]);
+		printf("%02x ", pf[i]);
 	}
-	printf("%x", pf[i]);
+	printf("%02x", pf[i]);
 	printf("\n");
 	return (0);
 }
