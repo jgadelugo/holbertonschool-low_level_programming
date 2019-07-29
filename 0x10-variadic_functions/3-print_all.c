@@ -11,6 +11,7 @@ void print_all(const char * const format, ...)
 {
 	va_list valist;
 	unsigned int i = 0, n = 0;
+	char * arg;
 
 	while (format[n])
 		n++;
@@ -21,23 +22,33 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 		case 'c':
+			if (i)
+				printf(", ");
 			printf("%c", va_arg(valist, int));
 			break;
 		case 'i':
+			if (i)
+				printf(", ");
 			printf("%i", va_arg(valist, int));
 			break;
 		case 'f':
+			if (i)
+				printf(", ");
 			printf("%f", va_arg(valist, double));
 			break;
 		case 's':
-			printf("%s", va_arg(valist, char *));
+			if (i)
+				printf(", ");
+			arg = va_arg(valist, char *);
+			if (arg)
+				printf("%s", arg);
+			else
+				printf("%p", arg);
 			break;
 		default:
 			i++;
 			continue;
 		}
-		if (i != n - 1)
-			printf(", ");
 		i++;
 	}
 	printf("\n");
