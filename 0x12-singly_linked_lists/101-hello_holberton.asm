@@ -7,4 +7,4 @@ main:
 	call    printf
 	
 	section .data
-mess: db      "Hello, Holberton\n"
+mess: db      "Hello, Holberton", 10
