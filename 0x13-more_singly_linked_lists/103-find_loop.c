@@ -18,6 +18,8 @@ listint_t *find_listint_loop(listint_t *head)
 		{
 			if (slow)
 				slow = (*slow).next;
+			if (fast == head)
+				return (head);
 			if (fast)
 				fast = (*fast).next;
 			if (fast == head)
