@@ -8,27 +8,26 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *loop1, *loop2;
+	listint_t *slow, *fast;
 
 	while (head && (*head).next)
 	{
-		loop1 = head;
-		loop2 = (*head).next;
-		while (loop1 != loop2)
+		slow = head;
+		fast = (*head).next;
+		while (slow != fast)
 		{
-			if (loop1)
-				loop1 = (*loop1).next;
-			if (loop2)
-				loop2 = (*loop2).next;
-			if (loop2 == head)
+			if (slow)
+				slow = (*slow).next;
+			if (fast)
+				fast = (*fast).next;
+			if (fast == head)
 				return (head);
-			if (loop2)
-				loop2 = (*loop2).next;
-			if (loop2 == head)
+			if (fast)
+				fast = (*fast).next;
+			if (fast == head)
 				return (head);
 		}
 		head = (*head).next;
 	}
-	printf("%p, %d\n", (void *)head, head->n);
 	return (NULL);
 }
