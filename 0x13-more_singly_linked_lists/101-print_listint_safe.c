@@ -14,8 +14,7 @@ size_t print_listint_safe(const listint_t *head)
 
 	if (!head)
 		exit(98);
-
-	for (i = 0; (*head).next && !flag; head = (*head).next, i++)
+	for (i = 1; (*head).next && !flag; head = (*head).next, i++)
 	{
 		if ((*head).next)
 			slow = (*head).next;
@@ -25,11 +24,13 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			if (slow)
 				slow = (*slow).next;
-			if (fast)
+			if (fast == head)
+				flag = 1;
+			if (fast && !flag)
 				fast = (*fast).next;
 			if (fast == head)
 				flag = 1;
-			if (fast)
+			if (fast && !flag)
 				fast = (*fast).next;
 			if (fast == head)
 				flag = 1;
@@ -37,14 +38,9 @@ size_t print_listint_safe(const listint_t *head)
 		printf("[%p] %d\n", (void *)head, (*head).n);
 	}
 
-	while (flag && (*head).next != fast)
-	{
+	for (; flag && (*head).next != fast; i++, head = (*head).next)
 		printf("[%p] %d\n", (void *)head, (*head).n);
-		i++;
-		head = (*head).next;
-	}
 	printf("[%p] %d\n", (void *)head, (*head).n);
-	i++;
 	if (fast)
 		printf("-> [%p] %d\n", (void *)fast, (*fast).n);
 	return (i);
