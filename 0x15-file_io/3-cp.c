@@ -1,145 +1,59 @@
 #include "holberton.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
-  * copy_textfile - reads file if succesfull copies content up to filecopy
-  * @filename: file to read
-  * @filecopy: file to copy
-  * @letters: nth place
-  * Return: content of file up to nth place
-  */
-void copy_textfile(char *filename, char *filecopy, int letters)
-{
-	char *buff;
-	int of, lRead = 1, checkClose, check_created = 0, check_a = 0;
-
-	buff = malloc(letters);
-	if (!buff)
-		return;
-	of = open(filename, O_RDONLY);
-	if (of == -1)
-	{
-		free(buff);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
-		exit(98);
-	}
-	while (lRead)
-	{
-		lRead = read(of, buff, letters);
-		if (lRead == -1)
-		{
-			free(buff);
-			close(of);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filecopy), exit(99);
-		}
-		if (check_created && lRead > 0)
-			check_a = append_text_to_copyfile(filecopy, buff);
-		if (!check_created && lRead > 0)
-		{
-			check_a = create_copyfile(filecopy, buff);
-			check_created = 1;
-		}
-	}
-	free(buff);
-	checkClose = close(of);
-	if (checkClose == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", of), exit(100);
-	if (check_a == -1)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filecopy), exit(99);
-}
-
-/**
- * create_copyfile - creates a file or truncates it
- * @filename: the name of the file to create
- * @text_content: NULL terminated string to write to file
- * Return: 1 on succes, -1 on failue
- */
-
-int create_copyfile(const char *filename, char *text_content)
-{
-	int file, len = 0, check_close, check = 0;
-
-	if (!filename)
-		return (-1);
-
-	/* creates file or truncates a file, and give it permission -rw------ */
-	file = open(filename, O_RDWR | O_TRUNC | O_CREAT, 0664);
-	if (file == -1)
-		return (-1);
-
-	/* if text, writes text into file */
-	if (text_content)
-	{
-		for (len = 0; text_content[len]; len++)
-			;
-		check = write(file, text_content, len);
-	}
-	/* closes file */
-	check_close = close(file);
-	if (check_close == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
-		exit(100);
-	}
-	if (check != len)
-		return (-1);
-
-	return (1);
-}
-
-/**
- * append_text_to_copyfile - append to a file
- * @filename: the name of the file
- * @text_content: NULL terminated string to write to file
- * Return: 1 on succes, -1 on failure
- */
-
-int append_text_to_copyfile(const char *filename, char *text_content)
-{
-	int file, len, check_close;
-
-	if (!filename)
-		return (-1);
-
-	/* Append to a file */
-	file = open(filename, O_RDWR | O_APPEND);
-	if (file == -1)
-		return (-1);
-
-	/* if text, writes text into file */
-	if (text_content)
-	{
-		for (len = 0; text_content[len]; len++)
-			;
-		write(file, text_content, len);
-	}
-	/* closes file */
-	check_close = close(file);
-	if (check_close == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
-		exit(100);
-	}
-
-	return (1);
-}
-
-
-/**
-  * main - cp function
-  * @argc: number of arguments passed
+  * main - copy a file into another file (cp command)
+  * @argc: number of arguments
   * @argv: arguments
-  * Return: 0 if succesful
+  * Return: 0 if succesfull
   */
+
 int main(int argc, char **argv)
 {
-	int buffsize = 1024;
+	int bytes = 1024, lenRead = 1, lenWrite, checkClose, f1, f2;
+	char buffer[1024];
 
 	if (argc != 3)
 		exit(97);
-	if (argv[1] && argv[2])
-		copy_textfile(argv[1], argv[2], buffsize);
-
+	f1 = open(argv[1], O_RDONLY);
+	if (f1 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	f2 = open(argv[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
+	if (f2 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
+		exit(98);
+	}
+	while (lenRead)
+	{
+		lenRead = read(f1, buffer, bytes);
+		if (lenRead == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+		lenWrite = write(f2, buffer, lenRead);
+		if (lenWrite == -1 || lenWrite != lenRead)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
+	}
+	checkClose = close(f1);
+	if (checkClose == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f1);
+		exit(100);
+	}
+	checkClose = close(f2);
+	if (checkClose == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f2);
+		exit(100);
+	}
 	return (0);
 }
