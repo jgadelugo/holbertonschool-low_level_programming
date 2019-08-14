@@ -21,7 +21,7 @@ void copy_textfile(char *filename, char *filecopy, int letters)
 	if (of == -1)
 	{
 		free(buff);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", filename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
 	while (lRead)
@@ -31,7 +31,7 @@ void copy_textfile(char *filename, char *filecopy, int letters)
 		{
 			free(buff);
 			close(of);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", filecopy);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filecopy);
 			exit(99);
 		}
 		if (check_created && lRead > 0)
@@ -41,17 +41,12 @@ void copy_textfile(char *filename, char *filecopy, int letters)
 			check_a = create_copyfile(filecopy, buff);
 			check_created = 1;
 		}
-		if (check_a == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", filecopy);
-			exit(99);
-		}
 	}
 	free(buff);
 	close(of);
 	if (check_a == -1)
-	{       
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", filecopy);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filecopy);
 		exit(99);
 	}
 }
