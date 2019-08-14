@@ -9,48 +9,51 @@
   * @letters: nth place
   * Return: content of file up to nth place
   */
-char *copy_textfile(char *filename, char *filecopy, int letters)
+void copy_textfile(char *filename, char *filecopy, int letters)
 {
 	char *buff;
-	int of, check_size = 1, lRead, check_created = 0, check_a;
+	int of, lRead = 1, check_created = 0, check_a = 0;
 
-	if (!filename || !letters)
-		return (NULL);
+	buff = malloc(letters);
+	if (!buff)
+		return;
 	of = open(filename, O_RDONLY);
 	if (of == -1)
 	{
+		free(buff);
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s", filename);
 		exit(98);
 	}
-	buff = malloc(letters);
-	if (!buff)
-		return (NULL);
-	while (check_size)
+	while (lRead)
 	{
 		lRead = read(of, buff, letters);
 		if (lRead == -1)
 		{
 			free(buff);
 			close(of);
-			return (NULL);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s", filecopy);
+			exit(99);
 		}
-		if (check_created)
+		if (check_created && lRead > 0)
 			check_a = append_text_to_copyfile(filecopy, buff);
-		if (!check_created)
+		if (!check_created && lRead > 0)
 		{
 			check_a = create_copyfile(filecopy, buff);
 			check_created = 1;
 		}
-		if (lRead < letters)
-			check_size = 1;
 		if (check_a == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s", filecopy);
 			exit(99);
 		}
 	}
+	free(buff);
 	close(of);
-	return (buff);
+	if (check_a == -1)
+	{       
+		dprintf(STDERR_FILENO, "Error: Can't write to %s", filecopy);
+		exit(99);
+	}
 }
 
 /**
@@ -132,7 +135,8 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 		exit(97);
-	copy_textfile(argv[1], argv[2], buffsize);
+	if (argv[1] && argv[2])
+		copy_textfile(argv[1], argv[2], buffsize);
 
 	return (0);
 }
