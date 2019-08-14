@@ -12,7 +12,7 @@
 void copy_textfile(char *filename, char *filecopy, int letters)
 {
 	char *buff;
-	int of, lRead = 1, check_created = 0, check_a = 0;
+	int of, lRead = 1, checkClose, check_created = 0, check_a = 0;
 
 	buff = malloc(letters);
 	if (!buff)
@@ -31,8 +31,7 @@ void copy_textfile(char *filename, char *filecopy, int letters)
 		{
 			free(buff);
 			close(of);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filecopy);
-			exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filecopy), exit(99);
 		}
 		if (check_created && lRead > 0)
 			check_a = append_text_to_copyfile(filecopy, buff);
@@ -43,12 +42,11 @@ void copy_textfile(char *filename, char *filecopy, int letters)
 		}
 	}
 	free(buff);
-	close(of);
+	checkClose = close(of);
+	if (checkClose == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", of), exit(100);
 	if (check_a == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filecopy);
-		exit(99);
-	}
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filecopy), exit(99);
 }
 
 /**
@@ -60,7 +58,7 @@ void copy_textfile(char *filename, char *filecopy, int letters)
 
 int create_copyfile(const char *filename, char *text_content)
 {
-	int file, len = 0, check = 0;
+	int file, len = 0, check_close, check = 0;
 
 	if (!filename)
 		return (-1);
@@ -78,7 +76,12 @@ int create_copyfile(const char *filename, char *text_content)
 		check = write(file, text_content, len);
 	}
 	/* closes file */
-	close(file);
+	check_close = close(file);
+	if (check_close == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
+		exit(100);
+	}
 	if (check != len)
 		return (-1);
 
@@ -94,7 +97,7 @@ int create_copyfile(const char *filename, char *text_content)
 
 int append_text_to_copyfile(const char *filename, char *text_content)
 {
-	int file, len;
+	int file, len, check_close;
 
 	if (!filename)
 		return (-1);
@@ -112,7 +115,12 @@ int append_text_to_copyfile(const char *filename, char *text_content)
 		write(file, text_content, len);
 	}
 	/* closes file */
-	close(file);
+	check_close = close(file);
+	if (check_close == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
+		exit(100);
+	}
 
 	return (1);
 }
