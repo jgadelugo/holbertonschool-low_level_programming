@@ -25,6 +25,8 @@ void copy_text_file(int f1, int f2, char *file1, char *file2)
 			close(f2);
 			exit(98);
 		}
+		if (!lenRead)
+			break;
 		lenWrite = write(f2, buffer, lenRead);
 		if (lenWrite == -1 || lenWrite != lenRead)
 		{
@@ -61,9 +63,9 @@ int main(int argc, char **argv)
 		f2 = open(argv[2], O_TRUNC | O_WRONLY);
 	if (f2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		close(f1);
-		exit(98);
+		exit(99);
 	}
 
 	copy_text_file(f1, f2, argv[1], argv[2]);
