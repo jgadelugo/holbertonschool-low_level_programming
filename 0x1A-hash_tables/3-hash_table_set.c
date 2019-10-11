@@ -80,7 +80,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
-	
+
 	update = update_key(&(ht->array[index]), key, value);
 	/* update == 0 when no key was found */
 	if (update == 0)
