@@ -3,6 +3,7 @@
 
 /**
   * update_key - update value of key if key exists
+  * @h: head of linked list
   * @key: key of node
   * @value: value of node
   * Return: 1 if succesful, 0 if not match
@@ -10,11 +11,16 @@
 int update_key(hash_node_t **h, const char *key, const char *value)
 {
 	hash_node_t *copy = *h;
+	char *value1;
 
 	for (; copy; copy = copy->next)
 		if (strcmp(copy->key, key) == 0)
 		{
-			copy->value = strdup(value);
+			value1 = strdup(value);
+			if (!value1)
+				return (0);
+			free(copy->value);
+			copy->value = value1;
 			return (1);
 		}
 	return (0);
@@ -25,18 +31,32 @@ int update_key(hash_node_t **h, const char *key, const char *value)
   * @h: head of the linked list
   * @key: key of node
   * @value: value of node
-  * Return - new head
+  * Return: new head
   */
 hash_node_t *add_node(hash_node_t **h, const char *key, const char *value)
 {
 	hash_node_t *new_node;
+	char *key1, *value1;
 
 	new_node = malloc(sizeof(hash_node_t));
-	if (!new_node) 
+	if (!new_node)
 		return (NULL);
+	key1 = strdup(key);
+	if (!key1)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	value1 = strdup(value);
+	if (!value1)
+	{
+		free(new_node);
+		free(key1);
+		return (NULL);
+	}
 
-	new_node->key = strdup(key);
-	new_node->value = strdup(value);
+	new_node->key = key1;
+	new_node->value = value1;
 	new_node->next = *h;
 
 	*h = new_node;
@@ -53,13 +73,22 @@ hash_node_t *add_node(hash_node_t **h, const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
+	hash_node_t *new;
 
 	if (*key == '\0')
 		return (0);
+
 	index = key_index((const unsigned char *)key, ht->size);
 
 	if (!update_key(&(ht->array[index]), key, value))
-		ht->array[index] = add_node(&(ht->array[index]), key, value);
+	{
+		new = add_node(&(ht->array[index]), key, value);
+		if (!new)
+		{
+			return (0);
+		}
+		ht->array[index] = new;
+	}
 	return (1);
 
 }
