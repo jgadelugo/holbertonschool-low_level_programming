@@ -19,7 +19,7 @@ int largest(int *array, size_t size)
 		if (array[i] > largest)
 			largest = array[i];
 	}
-	return largest;
+	return (largest);
 }
 /**
  * counting_sort - sorts an array using counting sort algorithm
