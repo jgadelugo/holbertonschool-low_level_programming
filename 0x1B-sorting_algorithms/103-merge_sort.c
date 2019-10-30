@@ -2,7 +2,7 @@
 
 /**
  * merge_sort - merge sort an array
- * @aray: array to sort
+ * @array: array to sort
  * @size: size of array
  */
 void merge_sort(int *array, size_t size)
