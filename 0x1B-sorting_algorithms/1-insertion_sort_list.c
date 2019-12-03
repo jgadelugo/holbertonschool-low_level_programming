@@ -25,14 +25,19 @@ void swap(listint_t **list, listint_t *a, listint_t *b)
 		*list = b;
 }
 /**
- * insertion_sort_list - sorts a doubly linked list with insertion sort algorithm
+ * insertion_sort_list - sorts a doubly linked list with
+ * insertion sort algorithm
  * @list: pointer to doubly linked list
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list;
+	listint_t *current;
 	listint_t *temp;
 
+	if (list == NULL || *list == NULL)
+		return;
+
+	current = *list;
 	current = current->next;
 
 	while (current)
