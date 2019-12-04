@@ -5,7 +5,17 @@
   * @tree: tree to check
   * Return: 1 if true 0 if falls
   */
-i
+int is_full(const binary_tree_t *tree)
+{
+	if (!tree)
+		return (1);
+	if (!tree->left && !tree->right)
+		return (1);
+	if (tree->left && tree->right)
+		return (is_full(tree->left) && is_full(tree->right));
+	return (0);
+
+}
 
 /**
   * binary_tree_is_full - check if binary tree is full
@@ -14,11 +24,7 @@ i
   */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	size_t size, leaves;
-
-	size = binary_tree_size(tree);
-	leaves = binary_tree_leaves(tree);
-	if (leaves == (size / 2 + 1))
-		return (1);
-	return (0);
+	if (!tree)
+		return (0);
+	return (is_full(tree));
 }
