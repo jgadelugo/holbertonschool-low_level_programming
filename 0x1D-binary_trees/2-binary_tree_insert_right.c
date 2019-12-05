@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
-  * create_nodei - creates node with base values
+  * crate_node - creates node with base values
   * @value: value for new node
   * Return: new node
   */
@@ -20,7 +20,7 @@ binary_tree_t *crate_node(int value)
 
 
 /**
-  * binary_tree_insert_right - insert at the right 
+  * binary_tree_insert_right - insert at the right
   * @parent: parent node
   * @value: value for new node
   * Return: new node or NULL if fails
