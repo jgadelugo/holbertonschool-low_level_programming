@@ -2,16 +2,17 @@
 
 
 /**
-  * binary_tree_delete - deletes a binary tree
+  * binary_tree_postorder - does function using postorder traversal
   * @tree: binary tree
+  * @func: function
   */
 
 void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int))
 {
-	if (tree->left)
-		binary_tree_postorder(tree->left, func);
-	if (tree->right)
-		binary_tree_postorder(tree->right, func);
-	if (tree)
-		func(tree->n);
+	if (!tree)
+		return;
+
+	binary_tree_postorder(tree->left, func);
+	binary_tree_postorder(tree->right, func);
+	func(tree->n);
 }
