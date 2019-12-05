@@ -2,8 +2,9 @@
 
 
 /**
-  * binary_tree_delete - deletes a binary tree
+  * binary_tree_nodes - counts the number of nodes in a tree
   * @tree: binary tree
+  * Return: number of nodes
   */
 size_t binary_tree_nodes(const binary_tree_t *tree)
 {

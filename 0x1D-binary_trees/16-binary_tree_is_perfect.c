@@ -2,7 +2,7 @@
 
 
 /**
-  * ge_depth - gets depth of left side
+  * get_depth - gets depth of left side
   * @tree: binary tree
   * Return: depth
   */
@@ -20,9 +20,11 @@ int get_depth(const binary_tree_t *tree)
 
 
 /**
-  * binary_tree_leaves - counts the leaves in a binary tree
+  * is_perfect - counts the leaves in a binary tree
   * @tree: binary tree
-  * Return: number of leaves
+  * @depth: depth of left most side
+  * @level: depth of a chain
+  * Return: 1 if it is perfect 0 if not
   */
 int is_perfect(const binary_tree_t *tree, int depth, int level)
 {
@@ -36,7 +38,8 @@ int is_perfect(const binary_tree_t *tree, int depth, int level)
 	}
 	if (!tree->left || !tree->right)
 		return (0);
-	return is_perfect(tree->right, depth, level + 1) && is_perfect(tree->right, depth, level + 1);
+	return (is_perfect(tree->right, depth, level + 1) &&
+		is_perfect(tree->left, depth, level + 1));
 }
 
 /**
