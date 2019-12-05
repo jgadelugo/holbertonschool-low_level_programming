@@ -31,21 +31,19 @@ binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 
 	if (!parent)
 		return (NULL);
+
 	new = crate_node(value);
 	if (!new)
 		return (NULL);
-	if (parent && parent->right)
-		while (parent->right)
-		{
-			if (parent->right->n > value)
-			{
-				parent->right->parent = new;
-				break;
-			}
-			parent = parent->right;
-		}
+
+	if (parent->right)
+	{
+		parent->right->parent = new;
+		new->right = parent->right;
+	}
+
 	new->parent = parent;
-	new->right = parent->right;
 	parent->right = new;
+
 	return (new);
 }
