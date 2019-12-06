@@ -6,7 +6,7 @@
   * @value: value to search
   * Return: node where value is or null
   */
-bst_t *bst_search(const bst_t *tree, int value);
+bst_t *bst_search(const bst_t *tree, int value)
 {
 	if (!tree)
 		return (NULL);
@@ -17,5 +17,5 @@ bst_t *bst_search(const bst_t *tree, int value);
 		else if (tree->n < value)
 			tree = tree->right;
 	}
-	return (tree);
+	return ((bst_t *)tree);
 }
