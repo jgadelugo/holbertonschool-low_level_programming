@@ -40,12 +40,12 @@ int rec_search(int *arr, int l, int r, int val)
 	if (r >= l)
 	{
 		mid = l + (r - l) / 2;
-		print_array(arr, l, r, size);
+		print_array(arr, l, r);
 		if (arr[mid] == val)
 			return (mid);
 		if (arr[mid] > val)
-			return (rec_search(arr, l, mid - 1, val, size));
-		return (rec_search(arr, mid + 1, r, val, size));
+			return (rec_search(arr, l, mid - 1, val));
+		return (rec_search(arr, mid + 1, r, val));
 	}
 	return (-1);
 }
@@ -63,6 +63,6 @@ int rec_search(int *arr, int l, int r, int val)
 int binary_search(int *array, size_t size, int value)
 {
 	if (array && size)
-		return (rec_search(array, 0, (int)size - 1, value, (int)size));
+		return (rec_search(array, 0, (int)size - 1, value));
 	return (-1);
 }
