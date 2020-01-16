@@ -45,7 +45,7 @@ int rec_search(int *arr, int l, int r, int val)
 		if (arr[mid] == val)
 		{
 			if (mid != 0 && arr[mid - 1] == val)
-				return rec_search(arr, 0, mid, val);
+				return (rec_search(arr, l, mid, val));
 			return (mid);
 		}
 
@@ -59,7 +59,7 @@ int rec_search(int *arr, int l, int r, int val)
 
 
 /**
-  * advanced_binary - Search for a value in an array of ints using binary search
+  * advanced_binary - Search for value in an array of ints using binary search
   * @array: array to search
   * @size: of array
   * @value: Value to search for
