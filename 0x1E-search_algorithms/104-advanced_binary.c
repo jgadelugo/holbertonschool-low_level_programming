@@ -50,7 +50,7 @@ int rec_search(int *arr, int l, int r, int val)
 		}
 
 		if (arr[mid] > val)
-			return (rec_search(arr, l, mid - 1, val));
+			return (rec_search(arr, l, mid, val));
 
 		return (rec_search(arr, mid + 1, r, val));
 	}
