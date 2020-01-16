@@ -50,7 +50,7 @@ int rec_search(int *arr, int l, int r, int val)
 		}
 
 		if (arr[mid] > val)
-			return (rec_search(arr, l, mid, val));
+			return (rec_search(arr, l, mid - 1, val));
 
 		return (rec_search(arr, mid + 1, r, val));
 	}
@@ -94,8 +94,8 @@ int exponential_search(int *array, size_t size, int value)
 			printf("Value checked array[%d] = [%d]\n", r, array[r]);
 
 		if (r >= size)
-			r = size;
-		idx = advanced_binary(array + l, r - l, value);
+			r = size - 1;
+		idx = advanced_binary(array + l, r - l + 1, value);
 		if (idx != -1)
 			return (idx + l);
 	}
