@@ -95,6 +95,7 @@ int exponential_search(int *array, size_t size, int value)
 
 		if (r >= size)
 			r = size - 1;
+		printf("Value found between indexes [%d] and [%d]\n", l, r);
 		idx = advanced_binary(array + l, r - l + 1, value);
 		if (idx != -1)
 			return (idx + l);
